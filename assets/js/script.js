@@ -2,8 +2,6 @@
 const characters = getAvailableCharacters(); // Array with all available characters
 let animationFinished = true;
 
-window.resizeTo(100, 100);
-
 // HTML elements
 const generatePasswordBtn = document.querySelector('#generate-btn'); // Generate password button!
 const passwordLbls =  document.querySelectorAll('.password-item'); // Generated passwords
@@ -40,7 +38,6 @@ function generatePasswords(e) {
     e.preventDefault();
     if(!animationFinished) return;
     const passwordLength = parseInt(document.querySelector('#password-length').value);
-    console.log(passwordLength);
     if(passwordLength < 1 || isNaN(passwordLength)) return;
     let passwords = [];
     for(let i = 0; i < 4; i++) {
