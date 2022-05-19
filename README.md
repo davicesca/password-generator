@@ -5,5 +5,6 @@ I developed this password generator for a Scrimba solo project.
 
 # Example
 
-![example](https://user-images.githubusercontent.com/100844295/169222407-23e95503-70bc-4b39-a9aa-e3565dcc9731.gif)
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/100844295/169222407-23e95503-70bc-4b39-a9aa-e3565dcc9731.gif">
+</p>
