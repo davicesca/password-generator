@@ -141,9 +141,3 @@ input[type=number] {
         color: #55F991;
     }
 }
-
-@media (max-width: 1156px) {
-    .password-container {
-        max-width: 75vw;
-    }
-}
