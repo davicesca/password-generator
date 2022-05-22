@@ -6,9 +6,17 @@
     box-sizing: border-box; 
 }
 
+html {
+    font-size: calc(14px + 0.5vw);
+}
+
 body {
     background-color: #1F2937;
     font-family: Karla, sans-serif;
+}
+
+body, button, input {
+    font-size: 1rem;
 }
 
 button:focus, input:focus {
@@ -25,21 +33,21 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .wrapper {
     width: 100%;
     min-height: 100vh;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 .password-intro {
     height: auto;
-    padding-bottom: 40px;
-    display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     border-bottom: 1px solid #2F3E53;
 }
 
@@ -64,24 +72,19 @@ input[type=number] {
 }
 
 .password-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn, .password-input, .password-item {
-    margin: 8px;
+    margin-bottom: 40px;
+    gap: 40px 20px;
 }
 
 .btn {
     background-color: #10B981;
     color: #fff;
-    padding: 0.65em 1em;
+    padding: 0.5625em 1.0625em 0.5625em 0.9375em;
     border: none;
-    border-radius: 6px;
+    border-radius: 0.375em;
     display: flex;
     align-items: center;
-    font-size: 16px;
+    line-height: 1.5em;
     cursor: pointer;
     transition: all 0.5s ease;
 }
@@ -96,37 +99,33 @@ input[type=number] {
 }
 
 .password-container {
-    max-width: 550px;
+    width: 28em;
     height: auto;
     padding-top: 40px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
     flex-wrap: wrap;
+    gap: 40px 20px;
 }
 
-.password-input, .password-item {
+.password-component {
     background-color: #273549;
     color: #55F991;
-    width: 13.1em;
     height: 2.4em;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    border: 1px solid #273549;
+    border-radius: 0.375em;
     font-weight: 500;
     text-align: center;
     transition: border 0.2s;
 }
 
-.password-item {
+.random-password {
     cursor: pointer;
 }
 
-.password-input:hover, .password-item:hover, .password-input:focus, .password-item:focus  {
+.password-component:hover, .password-component:focus {
     border: 1px solid #0d99ff;
 }
 
-.password-input::placeholder, .password-item::placeholder {
+.password-component::placeholder {
     color: #202B3C;
 }
 
@@ -143,12 +142,8 @@ input[type=number] {
     }
 }
 
-@media (min-width: 1000px) {
-    html, .btn, .password-input, .password-item {
-        font-size: 20px;
-    }
-    
-    .password-item {
-        width: 45%;
+@media (max-width: 1156px) {
+    .password-container {
+        max-width: 75vw;
     }
 }

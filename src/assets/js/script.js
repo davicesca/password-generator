@@ -3,8 +3,8 @@ const characters = getAvailableCharacters(); // Array with all available charact
 let animationFinished = true;
 
 // HTML elements
-const generatePasswordBtn = document.querySelector('#generate-btn'); // Generate password button!
-const passwordLbls =  document.querySelectorAll('.password-item'); // Generated passwords
+const generatePasswordBtn = document.querySelector('#generate-btn'); // Generate password button
+const passwordLbls = document.querySelectorAll('.random-password'); // Generated password containers 
 
 // Event Listeners
 generatePasswordBtn.addEventListener('click', generatePasswords);
@@ -19,6 +19,18 @@ passwordLbls.forEach(passwordLbl => passwordLbl.addEventListener('click', () => 
 }));
 
 // Functions
+function generatePasswords(e) {
+    e.preventDefault();
+    if(!animationFinished) return;
+    const passwordLength = parseInt(document.querySelector('#password-length').value);
+    if(passwordLength < 1 || isNaN(passwordLength)) return;
+    let passwords = [];
+    for(let i = 0; i < 4; i++) {
+        passwords.push(getRandomPassword(passwordLength));
+    }
+    renderPasswords(passwords);
+}
+
 function renderPasswords(passwords) {
     const passwordLblsArray = Array.from(passwordLbls);
     for(let i = 0; i < passwordLblsArray.length; i++) {
@@ -32,18 +44,6 @@ function renderPasswords(passwords) {
             animationFinished = true;    
         });
     }
-}
-
-function generatePasswords(e) {
-    e.preventDefault();
-    if(!animationFinished) return;
-    const passwordLength = parseInt(document.querySelector('#password-length').value);
-    if(passwordLength < 1 || isNaN(passwordLength)) return;
-    let passwords = [];
-    for(let i = 0; i < 4; i++) {
-        passwords.push(getRandomPassword(passwordLength));
-    }
-    renderPasswords(passwords);
 }
 
 function getRandomPassword(length) {

@@ -7,24 +7,24 @@
 	<script src="./assets/js/script.js" defer></script>
 </head>
 <body>
-	<div class="wrapper">
-		<div class="password-intro">
+	<div class="wrapper center-container">
+		<div class="password-intro center-container">
 			<header class="header">
 				<h1 class="title">Generate a <span class="contrast">random password</span></h1>
 				<p class="subtitle">Never use an insecure password again.</p>
 			</header>
-			<form class="password-form">
+			<form class="password-form center-container">
 				<button id="generate-btn" class="btn" type="submit">
 					<img class="icon" src="./assets/images/icon.svg" />Generate passwords
 				</button>
-				<input id="password-length" class="password-input" type="number" placeholder="Password length" />
+				<input id="password-length" class="password-component" type="number" placeholder="Password length" />
 			</form>
 		</div>
-		<div class="password-container">
-			<input id="password-length" class="password-item" type="text" placeholder="&bull;&bull;&bull;" readonly />
-			<input id="password-length" class="password-item" type="text" placeholder="&bull;&bull;&bull;" readonly />
-			<input id="password-length" class="password-item" type="text" placeholder="&bull;&bull;&bull;" readonly />
-			<input id="password-length" class="password-item" type="text" placeholder="&bull;&bull;&bull;" readonly />
+		<div class="password-container center-container">
+			<input class="password-component random-password" type="text" placeholder="&bull;&bull;&bull;" readonly />
+			<input class="password-component random-password" type="text" placeholder="&bull;&bull;&bull;" readonly />
+			<input class="password-component random-password" type="text" placeholder="&bull;&bull;&bull;" readonly />
+			<input class="password-component random-password" type="text" placeholder="&bull;&bull;&bull;" readonly />
 		</div>
 	</div>
 </body>
