@@ -4,7 +4,7 @@ let animationFinished = true;
 
 // HTML elements
 const generatePasswordBtn = document.querySelector('#generate-btn'); // Generate password button
-const passwordLbls = document.querySelectorAll('.random-password'); // Generated password containers 
+const passwordLbls = document.querySelectorAll('.random'); // Generated password containers 
 
 // Event Listeners
 generatePasswordBtn.addEventListener('click', generatePasswords);
@@ -28,19 +28,18 @@ function generatePasswords(e) {
     for(let i = 0; i < 4; i++) {
         passwords.push(getRandomPassword(passwordLength));
     }
-    renderPasswords(passwords);
+    render(passwords, passwordLbls);
 }
 
-function renderPasswords(passwords) {
-    const passwordLblsArray = Array.from(passwordLbls);
-    for(let i = 0; i < passwordLblsArray.length; i++) {
-        passwordLblsArray[i].value = passwords[i];
-
+function render(passwords, container) {
+    const containerArray = Array.from(container);
+    for(let i = 0; i < containerArray.length; i++) {
+        containerArray[i].value = passwords[i];
         // Applying text transparency animation
-        passwordLblsArray[i].classList.add('change-item');
+        containerArray[i].classList.add('change-item');
         animationFinished = false;
-        passwordLblsArray[i].addEventListener('animationend', function() {
-            passwordLblsArray[i].classList.remove('change-item');
+        containerArray[i].addEventListener('animationend', () => {
+            containerArray[i].classList.remove('change-item');
             animationFinished = true;    
         });
     }
