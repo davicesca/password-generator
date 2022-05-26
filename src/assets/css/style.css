@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;800&display=swap');
 
 :root {
-    --fs-xl: 5rem;
     --fs-800: 2.5rem;
     --fs-500: 1rem;
     --fs-400: 1.5rem;
@@ -14,12 +13,16 @@
 }
 
 html {
-    font-size: calc(15px + 0.390625vw);
+    font-size: calc(14px + 0.390625vw);
 }
+
+/* -------------- */
+/* GENERAL STYLES */
+/* -------------- */
 
 body {
     background-color: #1F2937;
-    font-family: Karla, sans-serif;
+    font-family: 'Karla', sans-serif;
     font-size: var(--fs-400);
 }
 
@@ -48,6 +51,10 @@ input[type=number] {
     min-height: 100vh;
     flex-direction: column;
 }
+
+/* -------------- */
+/* COMPONENT STYLES */
+/* -------------- */
 
 .password-intro {
     height: auto;
@@ -78,7 +85,7 @@ input[type=number] {
 
 .password-form {
     margin-bottom: 40px;
-    gap: 40px 20px;
+    gap: 20px;
 }
 
 .btn {
@@ -96,14 +103,15 @@ input[type=number] {
     cursor: pointer;
     transition: background-color 1s ease, transform 0.5s ease;
 }
-
 .btn:hover {
     background-color: #0ea774;
     transform: translateX(-5px);
 }
 
+/* GENERATED PASSWORDS CONTAINER */
+
 .password-container {
-    padding-top: 40px;
+    padding: 40px;
     display: grid;
     grid-template-columns: repeat(2, auto);
     gap: 20px;
@@ -112,6 +120,7 @@ input[type=number] {
 .password-component {
     background-color: #273549;
     color: #55F991;
+    min-width: 0;
     height: 2.4em;
     border: 1px solid #273549;
     border-radius: 0.375em;
@@ -120,19 +129,18 @@ input[type=number] {
     text-align: center;
     transition: border 0.2s;
 }
+.password-component:hover, .password-component:focus {
+    border: 1px solid #0d99ff;
+}
+.password-component::placeholder {
+    color: #202B3C;
+}
 
 .random {
     cursor: pointer;
 }
 
-.password-component:hover, .password-component:focus {
-    border: 1px solid #0d99ff;
-}
-
-.password-component::placeholder {
-    color: #202B3C;
-}
-
+/* PASSWORD CHANGING ANIMATION */
 .change-item {
     animation: changeItemAnim 1s linear;
 }
@@ -143,5 +151,20 @@ input[type=number] {
     }
     to {
         color: #55F991;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .password-form {
+        flex-direction: column;
+    }
+
+    .btn {
+        order: 1;
+        transition: none;
+    }
+    .btn:hover {
+        transform: none;
+        background-color: #10B981;
     }
 }
